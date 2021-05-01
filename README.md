@@ -40,9 +40,12 @@ mp_restartgame 5
 ```
 map <map_name>
 map de_dust2
+changelevel <map_name>
+changelevel de_dust2
 ```
 
-- You have to repeat the process in "How to start the game mode" section
+- You will have to repeat the process in "How to start the game mode" section
+- There should be a way to do it automatically https://developer.valvesoftware.com/wiki/CSGO_Custom_Game_Mode
 
 ## Important settings in this config
 
