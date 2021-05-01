@@ -52,9 +52,10 @@ changelevel de_dust2
 Feature | Command | Type | Value in this config | Notes
 --- | --- | --- | --- | ---
 Number of Rounds | mp_maxrounds | int | 30 | After 15 rounds the sides will switch
+Half Time | mp_halftime | bool | 1 | 0 = off, 1 = on
 Auto Team Balance | mp_autoteambalance | bool | 0 | 0 = off, 1 =  on
 Limit Teams | mp_limitteams | int | 10 | Max. number of players on each side
-Freeze Time | mp_freezetime | int | 10 |
+Freeze Time | mp_freezetime | int | 5 |
 Free Armor | mp_free_armor | int | 2 | 0 = no, 1 = kevlar, 2 = kevlar + helmet
 Bot Difficulty | bot_difficulty | int | 2 | noobs = 0, 1, 2, 3 = little better noobs
 Bot Quota Mode | bot_quota_mode | string | casual | - casual = the bots play normally <br> - competitive = the bots are stuck at spawn and do nothing
