@@ -61,3 +61,5 @@ Free Defuser | mp_defuser_allocation | int | 2 | 0 = no, 1 = one random player, 
 Bot Difficulty | bot_difficulty | int | 2 | 0 = noobs, 1 = normal, 2 = experts, 3 = beyond experts
 Bot Quota Mode | bot_quota_mode | string | casual | - casual = the bots play normally <br> - competitive = the bots are stuck at spawn and do nothing
 
+## Random team generator
+I use this one https://www.randomlists.com/team-generator
