@@ -51,7 +51,7 @@ changelevel de_dust2
 
 Feature | Command | Type | Value in this config | Notes
 --- | --- | --- | --- | ---
-Number of Rounds | mp_maxrounds | int | 30 | After 15 rounds the sides will switch
+Number of Rounds | mp_maxrounds | int | 20 | After 10 rounds the sides will switch
 Half Time | mp_halftime | bool | 1 | 0 = off, 1 = on
 Auto Team Balance | mp_autoteambalance | bool | 0 | 0 = off, 1 =  on
 Limit Teams | mp_limitteams | int | 10 | Max. number of players on each side
