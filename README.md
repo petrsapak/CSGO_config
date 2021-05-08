@@ -22,8 +22,9 @@ exec satturday
 - If you need more or less bots use these commands:
 
 ```
-bot_kick_t
-bot_kick_ct
+bot_kick t
+bot_kick ct
+bot_kick all
 bot_add_t
 bot_add_ct
 ```
@@ -43,7 +44,9 @@ map de_dust2
 changelevel <map_name>
 changelevel de_dust2
 ```
-
+- Some of our favourite maps:
+  - de_dust2, de_inferno, de_mirage, de_nuke
+  - cs_office, cs_italy, cs_militia, cs_assault, cs_apollo
 - You will have to repeat the process in "How to start the game mode" section
 - There should be a way to do it automatically https://developer.valvesoftware.com/wiki/CSGO_Custom_Game_Mode
 
