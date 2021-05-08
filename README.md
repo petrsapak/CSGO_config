@@ -33,6 +33,7 @@ bot_add_ct
 
 ```
 mp_restartgame <number_of_seconds_till_restart>
+mp_restartgame 5
 ```
 
 ## Other notes
