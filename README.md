@@ -2,7 +2,7 @@
 
 ## Where to copy the config
 - <your_steam_directory>\steamapps\common\Counter-Strike Global Offensive\csgo\cfg\
-- e.g. C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg\gamemode_satturday_night.cfg
+- e.g. C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\csgo\cfg\satturday.cfg
 
 ## How to start the server
 - Start CS-GO
@@ -15,7 +15,7 @@
 - Execute this command:
 
 ```
-exec gamemode_satturday_night
+exec satturday
 ```
 
 - Wait for the others to join
@@ -31,7 +31,7 @@ bot_add_ct
 - When everyone is ready execute:
 
 ```
-mp_restartgame 5
+mp_restartgame <number_of_seconds_till_restart>
 ```
 
 ## Other notes
