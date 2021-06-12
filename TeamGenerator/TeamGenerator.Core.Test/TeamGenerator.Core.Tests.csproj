@@ -9,8 +9,8 @@
     <ProjectGuid>{C6E62D54-E70A-422F-8852-D56DBF823076}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TeamGenerator.Model.Test</RootNamespace>
-    <AssemblyName>TeamGenerator.Model.Test</AssemblyName>
+    <RootNamespace>TeamGenerator.Core.Tests</RootNamespace>
+    <AssemblyName>TeamGenerator.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EvaluatorTest.cs" />
     <Compile Include="GeneratorTest.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +57,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TeamGenerator.Core\TeamGenerator.Core.csproj">
+      <Project>{AA8E144C-A668-48D2-91E8-7ED620D806D3}</Project>
+      <Name>TeamGenerator.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeamGenerator.Model\TeamGenerator.Model.csproj">
       <Project>{a2b432cb-0b38-4426-ac49-5aa0e6096f79}</Project>
       <Name>TeamGenerator.Model</Name>

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace TeamGenerator.Model.Test
+namespace TeamGenerator.Core.Test
 {
     [TestFixture]
     public class TestBase
