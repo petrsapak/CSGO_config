@@ -1,11 +1,14 @@
 ﻿using NUnit.Framework;
 using TeamGenerator.Core.Interfaces;
+using TeamGenerator.Core.Tests;
 using TeamGenerator.Model;
 
 namespace TeamGenerator.Core.Test
 {
     class EvaluatorTest
     {
+        private IEvaluate evaluator = new Evaluator();
+
         [Test]
         [TestCase(Rank.Silver1, 1)]
         [TestCase(Rank.Silver2, 3)]
@@ -25,18 +28,20 @@ namespace TeamGenerator.Core.Test
         [TestCase(Rank.LegendaryEagleMaster, 49)]
         [TestCase(Rank.SupremeMasterFirstClass, 54)]
         [TestCase(Rank.GlobalElite, 64)]
-        public void GetPlayerEvaluation(Rank rank, int expectedValue) 
+        public void EvaluatePlayer_ReturnsValueFromEnum(Rank rank, int expectedValue) 
         {
             Player player = new Player("", rank);
-            IEvaluate evaluator = new Evaluator();
 
             Assert.That(evaluator.EvaluatePlayer(player), Is.EqualTo(expectedValue));
         }
 
         [Test]
-        public void GetTeamEvaluation(Team team)
+        public void EvaluateTeam_ReturnsSumOfindividualTeamMembersEvaluations()
         {
+            Team team = EvaluatorTestHelper.GenerateRandomTeam();
+            int sumOfIndividualEvaluations = EvaluatorTestHelper.GetSumOfIndividualEvaluations(team);
 
+            Assert.That(evaluator.EvaluateTeam(team), Is.EqualTo(sumOfIndividualEvaluations));
         }
     }
 }

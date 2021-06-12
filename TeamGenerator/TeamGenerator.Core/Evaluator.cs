@@ -12,7 +12,14 @@ namespace TeamGenerator.Core
 
         public int EvaluateTeam(Team team)
         {
-            throw new System.NotImplementedException();
+            int rankCounter = 0;
+
+            foreach (Player player in team.Players.Values)
+            {
+                rankCounter += (int)player.Rank;
+            }
+
+            return rankCounter;
         }
     }
 }
