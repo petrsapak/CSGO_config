@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeamGenerator.Core
+namespace TeamGenerator.Model.Tests
 {
     public class Class1
     {
