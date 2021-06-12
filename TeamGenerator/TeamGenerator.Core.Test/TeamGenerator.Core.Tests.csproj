@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="EvaluatorTest.cs" />
     <Compile Include="GeneratorTest.cs" />
-    <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

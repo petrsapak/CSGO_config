@@ -2,7 +2,7 @@
 
 namespace TeamGenerator.Core.Test
 {
-    class GeneratorTest : TestBase
+    class GeneratorTest
     {
 
     }
