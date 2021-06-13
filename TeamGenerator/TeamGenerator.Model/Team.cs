@@ -5,10 +5,12 @@ namespace TeamGenerator.Model
 {
     public class Team
     {
+        public string Name { get; private set; }
         public Dictionary<string, Player> Players { get; private set; }
 
-        public Team()
+        public Team(string name)
         {
+            Name = name;
             Players = new Dictionary<string, Player>();
         }
 

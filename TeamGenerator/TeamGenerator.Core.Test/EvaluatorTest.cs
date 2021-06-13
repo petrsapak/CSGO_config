@@ -7,7 +7,7 @@ namespace TeamGenerator.Core.Test
 {
     class EvaluatorTest
     {
-        private IEvaluate evaluator = new Evaluator();
+        private readonly IEvaluate evaluator = new BasicEvaluator();
 
         [Test]
         [TestCase(Rank.Silver1, 1)]

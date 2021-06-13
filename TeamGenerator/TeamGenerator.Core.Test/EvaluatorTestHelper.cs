@@ -8,7 +8,7 @@ namespace TeamGenerator.Core.Tests
         public static Team GenerateRandomTeam()
         {
             Random random = new Random();
-            Team team = new Team();
+            Team team = new Team("Test");
             Array rankValues = Enum.GetValues(typeof(Rank));
 
             int teamSize = random.Next(3, 9);

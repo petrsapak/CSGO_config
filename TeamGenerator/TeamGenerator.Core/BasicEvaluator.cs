@@ -3,7 +3,7 @@ using TeamGenerator.Model;
 
 namespace TeamGenerator.Core
 {
-    internal class Evaluator : IEvaluate
+    internal class BasicEvaluator : IEvaluate
     {
         public int EvaluatePlayer(Player player)
         {

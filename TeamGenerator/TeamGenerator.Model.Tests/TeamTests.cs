@@ -9,7 +9,7 @@ namespace TeamGenerator.Model.Tests
         [SetUp]
         public void SetUp()
         {
-            team = new Team();
+            team = new Team("Test");
         }
 
         [Test]
@@ -29,8 +29,11 @@ namespace TeamGenerator.Model.Tests
             team.AddPlayer(player);
             team.AddPlayer(theSamePlayer);
 
-            Assert.That(team.Players.ContainsKey("Nick"));
-            Assert.That(team.Players.Count, Is.EqualTo(1));
+            Assert.Multiple(() =>
+            {
+                Assert.That(team.Players.ContainsKey("Nick"));
+                Assert.That(team.Players.Count, Is.EqualTo(1));
+            });
         }
 
         [Test]
@@ -43,8 +46,8 @@ namespace TeamGenerator.Model.Tests
         public void RemovePlayer_PlayerRemoved_WhenPlayerIsInTeam()
         {
             Player player = new Player("Nick", Rank.Silver1);
-
             team.RemovePlayer(player);
+
             Assert.That(team.Players.ContainsKey(player.Nick), Is.False);
         }
     }
