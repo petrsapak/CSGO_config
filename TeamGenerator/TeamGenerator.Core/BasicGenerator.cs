@@ -10,17 +10,17 @@ namespace TeamGenerator.Core
     {
         private readonly List<Player> availablePlayerPool;
         private readonly IEvaluate evaluator;
+        private readonly Random random;
 
         private readonly Team teamCounterTerroristBuffer;
         private readonly Team teamTerroristBuffer;
-        private readonly Random random;
 
-        public BasicGenerator(IEvaluate evaluator, IEnumerable<Player> availablePlayers)
+        public BasicGenerator(IEvaluate evaluator, IEnumerable<Player> availablePlayers, Random random)
         {
             this.availablePlayerPool = availablePlayers.ToList();
             this.evaluator = evaluator;
+            this.random = random;
 
-            random = new Random();
             teamTerroristBuffer = new Team("T");
             teamCounterTerroristBuffer = new Team("CT");
         }
