@@ -3,7 +3,7 @@ using TeamGenerator.Model;
 
 namespace TeamGenerator.Core
 {
-    internal class Evaluator : IEvaluate
+    internal class BasicEvaluator : IEvaluate
     {
         public int EvaluatePlayer(Player player)
         {
@@ -12,7 +12,14 @@ namespace TeamGenerator.Core
 
         public int EvaluateTeam(Team team)
         {
-            throw new System.NotImplementedException();
+            int rankCounter = 0;
+
+            foreach (Player player in team.Players.Values)
+            {
+                rankCounter += (int)player.Rank;
+            }
+
+            return rankCounter;
         }
     }
 }

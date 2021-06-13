@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Evaluator.cs" />
+    <Compile Include="BasicEvaluator.cs" />
     <Compile Include="Interfaces\IEvaluate.cs" />
     <Compile Include="Interfaces\IGenerate.cs" />
-    <Compile Include="TeamGenerator.cs" />
+    <Compile Include="BasicGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
