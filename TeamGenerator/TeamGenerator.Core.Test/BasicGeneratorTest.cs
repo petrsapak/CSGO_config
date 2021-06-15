@@ -44,7 +44,6 @@ namespace TeamGenerator.Core.Test
         }
 
         [Test]
-        [Ignore("Is not a real test")]
         public void GenerateTeams_RealWordScenario()
         {
             IEvaluate evaluator = new BasicEvaluator();
@@ -57,15 +56,15 @@ namespace TeamGenerator.Core.Test
                 new Player("Jirka", Rank.SilverElite),
                 new Player("Nela", Rank.Silver1),
                 new Player("Vlada", Rank.Silver1),
-                new Player("BotA", Rank.Silver1),
-                new Player("BotB", Rank.Silver1),
-                new Player("BotC", Rank.Silver1),
+                new Player("BotA", Rank.Silver3),
+                new Player("BotB", Rank.Silver3),
+                new Player("BotC", Rank.Silver3),
             };
             Random random = new Random();
+            IGenerate basicGenerator = new BasicGenerator(evaluator, availablePlayers, random);
 
             for (int i = 0; i < 100; i++)
             {
-                IGenerate basicGenerator = new BasicGenerator(evaluator, availablePlayers, random);
                 (Team, Team) teams = basicGenerator.GenerateTeams();
 
                 int counterTerroristTeamEvaluation = evaluator.EvaluateTeam(teams.Item1);
