@@ -9,15 +9,17 @@ namespace TeamGenerator.Core
     internal class BasicGenerator : IGenerate
     {
         private readonly List<Player> availablePlayerPool;
+        private List<Player> availablePlayerPoolBackup;
         private readonly IEvaluate evaluator;
         private readonly Random random;
 
-        private readonly Team teamCounterTerroristBuffer;
-        private readonly Team teamTerroristBuffer;
+        private Team teamCounterTerroristBuffer;
+        private Team teamTerroristBuffer;
 
         public BasicGenerator(IEvaluate evaluator, IEnumerable<Player> availablePlayers, Random random)
         {
             this.availablePlayerPool = availablePlayers.ToList();
+            this.availablePlayerPoolBackup = availablePlayers.ToList();
             this.evaluator = evaluator;
             this.random = random;
 
@@ -29,13 +31,11 @@ namespace TeamGenerator.Core
         {
             try
             {
-                Player initialRandomCoutnerTerroristPlayer = GetRandomPlayerFromBuffer();
-                availablePlayerPool.Remove(initialRandomCoutnerTerroristPlayer);
-                teamCounterTerroristBuffer.AddPlayer(initialRandomCoutnerTerroristPlayer);
+                Player initialRandomCoutnerTerroristPlayer = GetRandomPlayerFromPool();
+                MovePlayerFromPoolToBuffer(initialRandomCoutnerTerroristPlayer);
 
-                Player initialRandomTerroristPlayer = GetRandomPlayerFromBuffer();
-                availablePlayerPool.Remove(initialRandomTerroristPlayer);
-                teamTerroristBuffer.AddPlayer(initialRandomTerroristPlayer);
+                Player initialRandomTerroristPlayer = GetRandomPlayerFromPool();
+                MovePlayerFromPoolToBuffer(initialRandomTerroristPlayer);
 
                 while(availablePlayerPool.Count > 0)
                 {
@@ -47,7 +47,34 @@ namespace TeamGenerator.Core
                 //TODO log
             }
 
-            return (teamCounterTerroristBuffer, teamTerroristBuffer);
+            Team teamCounterTerrorist = (Team)teamCounterTerroristBuffer.Clone();
+            Team teamTerrorist = (Team)teamTerroristBuffer.Clone();
+
+            CleanBuffers();
+            RefreshAvailablePlayerPool();
+
+            return (teamCounterTerrorist, teamTerrorist);
+
+        }
+
+        private void RefreshAvailablePlayerPool()
+        {
+            foreach (Player player in availablePlayerPoolBackup)
+            {
+                availablePlayerPool.Add(player);
+            }
+        }
+
+        private void CleanBuffers()
+        {
+            teamTerroristBuffer = new Team("T");
+            teamCounterTerroristBuffer = new Team("CT");
+        }
+
+        private void MovePlayerFromPoolToBuffer(Player player)
+        {
+            availablePlayerPool.Remove(player);
+            teamCounterTerroristBuffer.AddPlayer(player);
         }
 
         private void AddNextPlayer()
@@ -58,31 +85,31 @@ namespace TeamGenerator.Core
 
             if (evaluationDifference == 0)
             {
-                Player randomPlayer = GetRandomPlayerFromBuffer();
+                Player randomPlayer = GetRandomPlayerFromPool();
                 teamTerroristBuffer.AddPlayer(randomPlayer);
                 availablePlayerPool.Remove(randomPlayer);
             }
             else if (evaluationDifference > 0)
             {
-                Player bestComplementPlayer = GetBestComplementPlayerFromBuffer(evaluationDifference);
+                Player bestComplementPlayer = GetBestComplementPlayerFromPool(evaluationDifference);
                 teamTerroristBuffer.AddPlayer(bestComplementPlayer);
                 availablePlayerPool.Remove(bestComplementPlayer);
             }
             else
             {
-                Player bestComplementPlayer = GetBestComplementPlayerFromBuffer(evaluationDifference);
+                Player bestComplementPlayer = GetBestComplementPlayerFromPool(evaluationDifference);
                 teamCounterTerroristBuffer.AddPlayer(bestComplementPlayer);
                 availablePlayerPool.Remove(bestComplementPlayer);
             }
         }
 
-        private Player GetRandomPlayerFromBuffer()
+        private Player GetRandomPlayerFromPool()
         {
             Player randomPlayer = availablePlayerPool[random.Next(availablePlayerPool.Count)];
             return randomPlayer;
         }
 
-        private Player GetBestComplementPlayerFromBuffer(int evaluationDifference)
+        private Player GetBestComplementPlayerFromPool(int evaluationDifference)
         {
             Player bestComplementPlayer = null;
 
