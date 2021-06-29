@@ -7,6 +7,95 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Add player"
+                  Grid.Row="0"
+                  Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <!--Nick-->
+                    <ColumnDefinition/>
+                    <!--Rank-->
+                    <ColumnDefinition/>
+                    <!--Add button-->
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0"
+                         Grid.Row="0"
+                         Text="Nick"/>
+                <ComboBox Grid.Column="1"
+                          Grid.Row="0"
+                          Text="Rank"/>
+                <Button Grid.Column="2"
+                        Grid.Row="0"
+                        Content="Add"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Available players"
+                  Grid.Row="1"
+                  Grid.Column="0">
+            <ListView>
+                <ListViewItem Content="Ahoj"/>
+                <ListViewItem Content="Ahoj"/>
+                <ListViewItem Content="Ahoj"/>
+                <ListViewItem Content="Ahoj"/>
+                <ListViewItem Content="Ahoj"/>
+                <ListViewItem Content="Ahoj"/>
+            </ListView>   
+        </GroupBox>
 
+        <Button Grid.Column="1"
+                Grid.Row="1"
+                Margin="5 150"
+                Content="Generate"/>
+
+        <Grid Grid.Row="1"
+              Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/> 
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Counter Terrorists"
+                  Grid.Row="0"
+                  Grid.Column="0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Estimated chance to win XX%"/>
+                    <ListView>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                    </ListView>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Terrorists"
+                  Grid.Row="1"
+                  Grid.Column="0">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Estimated chance to win XX%"/>
+                    <ListView>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                       <ListViewItem Content="Ahoj"/>
+                    </ListView>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
     </Grid>
 </Window>
