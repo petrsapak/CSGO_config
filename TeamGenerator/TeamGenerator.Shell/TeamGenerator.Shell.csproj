@@ -10,4 +10,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TeamGenerator.Core\TeamGenerator.Core.csproj" />
+    <ProjectReference Include="..\TeamGenerator.Model\TeamGenerator.Model.csproj" />
+  </ItemGroup>
 </Project>
