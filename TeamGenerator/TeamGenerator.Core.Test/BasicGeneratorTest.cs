@@ -49,16 +49,16 @@ namespace TeamGenerator.Core.Test
             IEvaluate evaluator = new BasicEvaluator();
             List<Player> availablePlayers = new List<Player>
             {
-                new Player("Ja", Rank.GoldNova3),
-                new Player("Vasek", Rank.SilverEliteMaster),
-                new Player("Ondra", Rank.SilverElite),
-                new Player("Ivan", Rank.SilverElite),
-                new Player("Jirka", Rank.SilverElite),
+                new Player("Petr", Rank.GoldNova3),
+                new Player("Vasek", Rank.GoldNova1),
+                new Player("Ondra", Rank.SilverEliteMaster),
+                new Player("Jirka", Rank.Silver4),
                 new Player("Nela", Rank.Silver1),
-                new Player("Vlada", Rank.Silver1),
                 new Player("BotA", Rank.Silver3),
                 new Player("BotB", Rank.Silver3),
                 new Player("BotC", Rank.Silver3),
+                new Player("BotD", Rank.Silver3),
+                new Player("David", Rank.Silver3)
             };
             Random random = new Random();
             IGenerate basicGenerator = new BasicGenerator(evaluator, availablePlayers, random);

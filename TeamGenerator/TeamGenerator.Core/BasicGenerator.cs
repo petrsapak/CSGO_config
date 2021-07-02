@@ -6,7 +6,7 @@ using TeamGenerator.Model;
 
 namespace TeamGenerator.Core
 {
-    internal class BasicGenerator : IGenerate
+    public class BasicGenerator : IGenerate
     {
         private readonly List<Player> availablePlayerPool;
         private List<Player> availablePlayerPoolBackup;
@@ -32,10 +32,10 @@ namespace TeamGenerator.Core
             try
             {
                 Player initialRandomCoutnerTerroristPlayer = GetRandomPlayerFromPool();
-                MovePlayerFromPoolToCounterTerroristBuffer(initialRandomCoutnerTerroristPlayer);
+                MovePlayerFromPoolToBuffer(initialRandomCoutnerTerroristPlayer, teamCounterTerroristBuffer);
 
                 Player initialRandomTerroristPlayer = GetRandomPlayerFromPool();
-                MovePlayerFromPoolToTerroristBuffer(initialRandomTerroristPlayer);
+                MovePlayerFromPoolToBuffer(initialRandomTerroristPlayer, teamTerroristBuffer);
 
                 while(availablePlayerPool.Count > 0)
                 {
@@ -54,7 +54,6 @@ namespace TeamGenerator.Core
             RefreshAvailablePlayerPool();
 
             return (teamCounterTerrorist, teamTerrorist);
-
         }
 
         private void RefreshAvailablePlayerPool()
@@ -71,16 +70,10 @@ namespace TeamGenerator.Core
             teamCounterTerroristBuffer = new Team("CT");
         }
 
-        private void MovePlayerFromPoolToCounterTerroristBuffer(Player player)
+        private void MovePlayerFromPoolToBuffer(Player player, Team buffer)
         {
             availablePlayerPool.Remove(player);
-            teamCounterTerroristBuffer.AddPlayer(player);
-        }
-
-        private void MovePlayerFromPoolToTerroristBuffer(Player player)
-        {
-            availablePlayerPool.Remove(player);
-            teamTerroristBuffer.AddPlayer(player);
+            buffer.AddPlayer(player);
         }
 
         private void AddNextPlayer()
@@ -92,17 +85,17 @@ namespace TeamGenerator.Core
             if (evaluationDifference == 0)
             {
                 Player randomPlayer = GetRandomPlayerFromPool();
-                MovePlayerFromPoolToTerroristBuffer(randomPlayer);
+                MovePlayerFromPoolToBuffer(randomPlayer, teamTerroristBuffer);
             }
             else if (evaluationDifference > 0)
             {
                 Player bestComplementPlayer = GetBestComplementPlayerFromPool(evaluationDifference);
-                MovePlayerFromPoolToTerroristBuffer(bestComplementPlayer);
+                MovePlayerFromPoolToBuffer(bestComplementPlayer, teamTerroristBuffer);
             }
             else
             {
                 Player bestComplementPlayer = GetBestComplementPlayerFromPool(evaluationDifference);
-                MovePlayerFromPoolToCounterTerroristBuffer(bestComplementPlayer);
+                MovePlayerFromPoolToBuffer(bestComplementPlayer, teamCounterTerroristBuffer);
             }
         }
 

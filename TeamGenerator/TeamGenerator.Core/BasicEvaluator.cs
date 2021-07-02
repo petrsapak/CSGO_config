@@ -3,11 +3,12 @@ using TeamGenerator.Model;
 
 namespace TeamGenerator.Core
 {
-    internal class BasicEvaluator : IEvaluate
+    public class BasicEvaluator : IEvaluate
     {
         public int EvaluatePlayer(Player player)
         {
-            return (int)player.Rank;
+            //enum enumeration starts at 0
+            return (int)player.Rank + 1;
         }
 
         public int EvaluateTeam(Team team)
@@ -16,7 +17,7 @@ namespace TeamGenerator.Core
 
             foreach (Player player in team.Players.Values)
             {
-                rankCounter += (int)player.Rank;
+                rankCounter += EvaluatePlayer(player);
             }
 
             return rankCounter;
