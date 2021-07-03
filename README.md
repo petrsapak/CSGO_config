@@ -83,7 +83,7 @@ now if you press C you can move freely on the map without any collisions. Press 
 
 ### Instalation
 - Download TeamGenerator.zip archive from this repository
-- Expand it wherever you see fit and the installation is complete
+- Expand/Extract it wherever you see fit and the installation is complete
 
 ### How to use the app
 - To start the application run the TeamGenerator.Shell.exe
