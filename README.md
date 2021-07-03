@@ -78,10 +78,38 @@ e.g. bind "C" "noclip"
 ```
 now if you press C you can move freely on the map without any collisions. Press C again to return to normal state.
 
-## Random team generator - OLD
-- I use this one https://www.randomlists.com/team-generator
+## Random team generator - first release
+- Wpf application which takes in account the rank of the player and tries to create balanced teams.
+
+### Instalation
+- Download TeamGenerator.zip archive from this repository
+- Expand it wherever you see fit and the installation is complete
+
+### How to use the app
+- To start the application run the TeamGenerator.Shell.exe
+- The UI is pretty simple and workflow very straightforward
 
 
-## Random team generator - In progress
- - New version of random team generator
- - This application takes in account the rank of the player and tries to create ballanced teams
+![image](https://user-images.githubusercontent.com/9948892/124349762-220fe380-dbf1-11eb-9af6-4d88057d20ba.png)
+
+#### Add player
+- Insert Nick and Rank in the "Add player" section, then click on the "Add" button.
+- Troubleshoot
+  - The "Add" button is disabled
+    - You already have player with this nick in "Available players" list
+    - The player has invalid "Nick" (at this moment the only invalid nick is an empty string)
+    - You still have focus in the "Nick" text box (press TAB or click outside the text box)
+
+#### Delete player
+- Select player in "Available players" section and press DELETE key
+
+#### Generate teams
+- Press "Generate teams" button
+- You can press this button as many times as you want - it will create different & balanced teams from the "Available players" list
+- Troubleshoot
+  - The "Generate teams" button is disabled
+    - There are no available players in the "Available players" list
+
+
+![image](https://user-images.githubusercontent.com/9948892/124350199-80d65c80-dbf3-11eb-97a8-4847ccd95eae.png)
+
