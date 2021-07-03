@@ -14,16 +14,26 @@ namespace TeamGenerator.Shell.ViewModels
         public MainWindowViewModel()
         {
             availablePlayers = new ObservableCollection<Player>();
-            AddAvailablePlayerCommand = new Command(AddAvailablePlayer, CanExecute);
-            DeleteAvailablePlayerCommand = new Command(DeleteAvailablePlayer, CanExecute);
-            GenerateTeamsCommand = new Command(GenerateTeams, CanExecute);
+            AddAvailablePlayerCommand = new Command(AddAvailablePlayer, CanAddNewPlayer);
+            DeleteAvailablePlayerCommand = new Command(DeleteAvailablePlayer, CanDeletePlayer);
+            GenerateTeamsCommand = new Command(GenerateTeams, CanGenerateTeams);
         }
 
         #region Commands
 
-        private bool CanExecute(object parameters)
+        private bool CanAddNewPlayer(object parameters)
         {
-            return true;
+            return AvailablePlayers.All(player => player.Nick != NewPlayerName) && !string.IsNullOrEmpty(NewPlayerName);
+        }
+
+        private bool CanDeletePlayer(object parameters)
+        {
+            return SelectedAvailablePlayer != null;
+        }
+
+        private bool CanGenerateTeams(object parameters)
+        {
+            return AvailablePlayers.Count > 0;
         }
 
         public ICommand AddAvailablePlayerCommand { get; set; }
@@ -32,11 +42,8 @@ namespace TeamGenerator.Shell.ViewModels
 
         private void AddAvailablePlayer(object parameters)
         {
-            if (!AvailablePlayers.Any(player => player.Nick == newPlayerName))
-            {
-                Player availablePlayer = new Player(nick: NewPlayerName, rank: newPlayerRank);
-                AvailablePlayers.Add(availablePlayer);
-            }
+            Player availablePlayer = new Player(nick: NewPlayerName, rank: newPlayerRank);
+            AvailablePlayers.Add(availablePlayer);
         }
 
         private void DeleteAvailablePlayer(object parameters)
@@ -46,25 +53,22 @@ namespace TeamGenerator.Shell.ViewModels
 
         private void GenerateTeams(object parameters)
         {
-            if (AvailablePlayers.Count > 0)
-            {
-                IEvaluate evaluator = new BasicEvaluator();
-                IGenerate generator = new BasicGenerator(evaluator, AvailablePlayers, new Random());
-                (Team, Team) teams = generator.GenerateTeams();
+            IEvaluate evaluator = new BasicEvaluator();
+            IGenerate generator = new BasicGenerator(evaluator, AvailablePlayers, new Random());
+            (Team, Team) teams = generator.GenerateTeams();
 
-                CounterTerrorists = new ObservableCollection<Player>(teams.Item1.Players.Values);
-                Terrorists = new ObservableCollection<Player>(teams.Item2.Players.Values);
+            CounterTerrorists = new ObservableCollection<Player>(teams.Item1.Players.Values);
+            Terrorists = new ObservableCollection<Player>(teams.Item2.Players.Values);
 
-                int counterTerroristTeamEvaluation = evaluator.EvaluateTeam(teams.Item1);
-                int terroristTeamEvaluation = evaluator.EvaluateTeam(teams.Item2);
-                int sumOfEvaluations = counterTerroristTeamEvaluation + terroristTeamEvaluation;
-                double evaluationPointToPercent = (double)100 / (double)sumOfEvaluations;
-                int counterTerroristsChanceOfWinning = (int)Math.Floor(counterTerroristTeamEvaluation * evaluationPointToPercent);
-                int terroristsChanceOfWinning = (int)Math.Floor(terroristTeamEvaluation * evaluationPointToPercent);
+            int counterTerroristTeamEvaluation = evaluator.EvaluateTeam(teams.Item1);
+            int terroristTeamEvaluation = evaluator.EvaluateTeam(teams.Item2);
+            int sumOfEvaluations = counterTerroristTeamEvaluation + terroristTeamEvaluation;
+            double evaluationPointToPercent = (double)100 / (double)sumOfEvaluations;
+            int counterTerroristsChanceOfWinning = (int)Math.Floor(counterTerroristTeamEvaluation * evaluationPointToPercent);
+            int terroristsChanceOfWinning = (int)Math.Floor(terroristTeamEvaluation * evaluationPointToPercent);
 
-                CounterTerroristsProbability = $"Estimated chance to win {counterTerroristsChanceOfWinning}%";
-                TerroristsProbability = $"Estimated chance to win {terroristsChanceOfWinning}%";
-            }
+            CounterTerroristsProbability = $"Estimated chance to win {counterTerroristsChanceOfWinning}%";
+            TerroristsProbability = $"Estimated chance to win {terroristsChanceOfWinning}%";
         }
 
         #endregion
