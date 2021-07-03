@@ -31,7 +31,8 @@ namespace TeamGenerator.Core.Tests
 
             foreach (Player player in team.Players.Values)
             {
-                rankCounter += (int)player.Rank;
+                //enum enumeration starts at 0
+                rankCounter += (int)player.Rank + 1;
             }
 
             return rankCounter;
