@@ -113,3 +113,4 @@ now if you press C you can move freely on the map without any collisions. Press 
 
 ![image](https://user-images.githubusercontent.com/9948892/124350199-80d65c80-dbf3-11eb-97a8-4847ccd95eae.png)
 
+![image](https://user-images.githubusercontent.com/9948892/124350247-d6126e00-dbf3-11eb-80bb-1377c73986cc.png)
