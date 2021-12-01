@@ -70,7 +70,7 @@ Bot Quota Mode | bot_quota_mode | string | casual | - casual = the bots play nor
 - This config file was created by http://csgoconsole.com/resources/training-configs.html and I put it here only to have all my favorite configs in one location.
 - Great for practicing smokes and tactics
 - The way to start this config is the same as Satturday.cfg
-- Also I recommend do use
+- I recommend to use
 
 ```
 bind "<key_you_want_to_use>" "noclip" 
