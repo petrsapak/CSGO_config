@@ -67,7 +67,7 @@ Bot Difficulty | bot_difficulty | int | 2 | 0 = noobs, 1 = normal, 2 = experts, 
 Bot Quota Mode | bot_quota_mode | string | casual | - casual = the bots play normally <br> - competitive = the bots are stuck at spawn and do nothing
 
 ## Pratice.cfg
-- This config file was created by http://csgoconsole.com/resources/training-configs.html and I put it here only to have all my favourite configs in one location.
+- This config file was created by http://csgoconsole.com/resources/training-configs.html and I put it here only to have all my favorite configs in one location.
 - Great for practicing smokes and tactics
 - The way to start this config is the same as Satturday.cfg
 - Also I recommend do use
