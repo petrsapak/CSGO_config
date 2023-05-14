@@ -47,6 +47,16 @@ e.g. map de_dust2
 changelevel <map_name>
 e.g. changelevel de_dust2
 ```
+- You can ban and unban players
+
+```
+listid - lists all bans in progress
+e.g. listid
+removeid <id> - allows that banned ip to join again
+e.g. removeid 76561155550130596
+addid <id> - bans the id
+e.g. addid 76561155550130596
+```
 - Some of our favourite maps:
   - de_dust2, de_inferno, de_mirage, de_nuke
   - cs_office, cs_italy, cs_militia, cs_assault, cs_apollo
@@ -63,7 +73,7 @@ Limit Teams | mp_limitteams | int | 10 | Max. number of players on each side
 Freeze Time | mp_freezetime | int | 5 |
 Free Armor | mp_free_armor | int | 0 | 0 = no, 1 = kevlar, 2 = kevlar + helmet
 Free Defuser | mp_defuser_allocation | int | 0 | 0 = no, 1 = one random player, 2 = everybody
-Friendly Fire | mp_friendly_fire | int | 1 | 0 = off, 1 = on
+Friendly Fire | mp_friendlyfire | int | 1 | 0 = off, 1 = on
 Auto-kick and ban players | mp_autokick | int | 0 | 0 = off, 1 = on
 Bot Difficulty | bot_difficulty | int | 2 | 0 = noobs, 1 = normal, 2 = experts, 3 = beyond experts
 Bot Quota Mode | bot_quota_mode | string | casual | - casual = the bots play normally <br> - competitive = the bots are stuck at spawn and do nothing
