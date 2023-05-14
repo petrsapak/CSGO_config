@@ -61,8 +61,10 @@ Half Time | mp_halftime | bool | 1 | 0 = off, 1 = on
 Auto Team Balance | mp_autoteambalance | bool | 0 | 0 = off, 1 =  on
 Limit Teams | mp_limitteams | int | 10 | Max. number of players on each side
 Freeze Time | mp_freezetime | int | 5 |
-Free Armor | mp_free_armor | int | 2 | 0 = no, 1 = kevlar, 2 = kevlar + helmet
-Free Defuser | mp_defuser_allocation | int | 2 | 0 = no, 1 = one random player, 2 = everybody
+Free Armor | mp_free_armor | int | 0 | 0 = no, 1 = kevlar, 2 = kevlar + helmet
+Free Defuser | mp_defuser_allocation | int | 0 | 0 = no, 1 = one random player, 2 = everybody
+Friendly Fire | mp_friendly_fire | int | 1 | 0 = off, 1 = on
+Auto-kick and ban players | mp_autokick | int | 0 | 0 = off, 1 = on
 Bot Difficulty | bot_difficulty | int | 2 | 0 = noobs, 1 = normal, 2 = experts, 3 = beyond experts
 Bot Quota Mode | bot_quota_mode | string | casual | - casual = the bots play normally <br> - competitive = the bots are stuck at spawn and do nothing
 
